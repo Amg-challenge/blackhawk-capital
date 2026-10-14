@@ -1,0 +1,79 @@
+/* Preserve the reference site's alpine photography and restrained sunset palette. */
+:root{--glass:rgba(9,15,24,.91);--muted:#c0c8d2;--gold:#d6b880;--steel:#b5c7d7}
+html{scroll-padding-top:112px}
+body{font-size:16px}
+.skip-link{position:fixed;left:16px;top:-100px;z-index:100;padding:12px 18px;background:#fff;color:#101b29}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+.scene{inset:0;transition:opacity .7s ease;transform:none;will-change:opacity}
+.shade{background:linear-gradient(180deg,rgba(4,9,16,.24),rgba(4,9,16,.22) 50%,rgba(4,9,16,.58))}
+.nav,.nav.solid{background:#fff;border-bottom:1px solid #e4e7eb;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.nav .wrap{height:94px}
+.nav .brand{width:205px;height:86px;overflow:hidden}
+.nav .brand{order:0}.nav ul{order:1}.menu-toggle{order:2}
+.brand-logo{display:block;width:205px;height:86px;object-fit:cover;object-position:center 56%;background:#fff}
+.nav ul a{color:#3c4652;font-size:11px;letter-spacing:.1em;font-weight:600}
+.nav ul a:hover,.nav ul a.on{color:#101b29}
+.nav ul a.on::after{background:#9b7645;height:2px}
+.menu-toggle{display:none;border:1px solid #bcc3cc;background:#fff;color:#152438;font:600 12px var(--sans);padding:10px 14px;cursor:pointer}
+.hero{min-height:88vh;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero .content{padding:158px 28px 82px}
+.logo-lockup{display:block;width:250px;height:122px;object-fit:cover;object-position:center 56%;margin-bottom:28px;background:#fff;box-shadow:0 6px 28px rgba(0,0,0,.12)}
+.hero h1{font-size:clamp(44px,6vw,76px);max-width:740px;line-height:1.05}
+.hero h1 em,.sec-head h2 em{font-style:normal}
+.lead{font-size:17px;max-width:610px;color:#f1f3f6}
+.eyebrow{letter-spacing:.17em}
+.hero .eyebrow{color:#e3e9f0}
+.btn{letter-spacing:.1em;transition:background .2s,border-color .2s,color .2s;backdrop-filter:none}
+.btn:hover{transform:none;background:rgba(255,255,255,.13);border-color:#fff}
+.btn.primary:hover{background:#ece9e1;color:#101b29}
+.scroll-cue{bottom:20px;font-size:10px;letter-spacing:.18em}
+.scroll-cue i{animation:none;height:24px}
+.interlude{min-height:40vh;padding:70px 24px 54px}
+.chapter .roman{font:600 10.5px var(--sans);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:#f2d8ad}
+.chapter h2{font-size:clamp(38px,5.1vw,62px);line-height:1.1;margin:14px 0}
+.chapter p{font-size:15px;letter-spacing:0;line-height:1.7;max-width:590px;color:#fff}
+.chapter .alt{font-size:10px;letter-spacing:.16em;margin-top:18px}
+section.block{padding:0 0 76px;scroll-margin-top:112px}
+.panel{padding:46px 44px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.sec-head{grid-template-columns:66px 1fr;margin-bottom:34px;gap:22px}
+.num{font:500 16px var(--sans);font-style:normal;color:var(--gold);padding-top:10px}
+.sec-head h2{font-size:clamp(32px,3.5vw,44px);line-height:1.14}
+.sec-head p{font-size:15.5px;line-height:1.75}
+.card{padding:25px 23px;transition:background .2s,border-color .2s}
+.card:hover{transform:none;background:rgba(255,255,255,.04)}
+.card .k{font-size:30px}
+.card h3{font-size:24px}
+.badge{font-size:10px;letter-spacing:.08em}
+.mandate{margin-bottom:32px}
+.mandate strong{font-size:28px}
+.alloc{grid-template-columns:1.7fr 1fr;gap:30px}
+.trow{grid-template-columns:1.6fr 1.6fr 70px 66px;gap:12px;padding:13px 16px}
+.trow.h{font-size:9px;letter-spacing:.07em}
+.trow.h .w,.trow.h .risk{font-size:9px}
+.risk{text-align:right;font-size:13px;color:var(--steel);font-variant-numeric:tabular-nums}
+.bar i{transition:none}
+.side h3{font-size:26px}
+.note{font-style:normal;font-size:12px;line-height:1.7}
+.tabs button{letter-spacing:.1em;cursor:pointer}
+.tabs button:focus-visible{outline-offset:-4px}
+.doc:hover{background:rgba(255,255,255,.04)}
+.doc h3{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.2}
+.doc .n{font-style:normal;font-size:24px}
+.tag{letter-spacing:.08em;white-space:normal;text-align:center;max-width:180px}
+.status{align-items:flex-start;line-height:1.7}
+.dot{flex:0 0 7px;width:7px;height:7px;margin-top:8px;box-shadow:none;animation:none}
+.team{gap:14px}
+.ph{aspect-ratio:auto;height:100px;font:500 27px var(--serif);color:#d6dfe9;background:rgba(255,255,255,.035)}
+.ph img,.member:hover .ph img{filter:grayscale(1);transform:none;transition:none}
+.member h3{font-family:var(--serif);font-size:20px;font-weight:600;margin-top:14px;min-height:48px;line-height:1.25}
+.member span{font-size:10px;letter-spacing:.06em;text-transform:none}
+.reveal,.chapter.reveal,.reveal.in,.chapter.reveal.in{opacity:1;transform:none;filter:none;transition:none}
+footer{background:#0a111d;padding:44px 0 30px;backdrop-filter:none}
+footer .brand{display:block;width:205px;height:86px;background:#fff;overflow:hidden}
+footer .legal{max-width:960px;color:#b1bdcb}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:1050px){.nav ul{gap:20px}.alloc{grid-template-columns:1fr}.team{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.nav .wrap{height:84px}.nav .brand,.brand-logo{width:180px;height:78px}.hero .content{padding-top:134px}.panel{padding:34px 24px}.sec-head{grid-template-columns:1fr}.num{width:54px}.steps{grid-template-columns:1fr}.team{grid-template-columns:repeat(2,1fr)}.menu-toggle{display:block}.nav ul{display:none;position:absolute;left:0;right:0;top:84px;background:#fff;padding:12px 28px 20px;border-bottom:1px solid #ddd;flex-direction:column;gap:4px}.nav.menu-open ul{display:flex}.nav ul a{display:block;padding:12px 0;font-size:12px}.nav ul a.on::after{right:auto;width:28px}.interlude{min-height:32vh;padding-top:48px;padding-bottom:42px}}
+@media(max-width:560px){html{scroll-padding-top:96px}.hero{min-height:86vh}.hero .content{padding:132px 18px 80px}.logo-lockup{width:205px;height:100px}.hero h1{font-size:44px}.lead{font-size:15px}.panel{padding:28px 18px}.sec-head h2{font-size:32px}.mandate div,.tile{padding:18px 15px}.mandate small,.tile small{font-size:9px;letter-spacing:.08em}.trow{grid-template-columns:1.35fr 1fr 51px 48px;gap:7px;padding:12px 9px}.tick b,.w,.risk{font-size:12px}.tick span{font-size:10px}.trow.h,.trow.h .w,.trow.h .risk{font-size:8px;letter-spacing:0}.legend{flex-wrap:wrap;gap:8px 18px;font-size:11px}.tabs{width:100%}.tabs button{flex:1;padding:12px 8px;font-size:10px}.doc{grid-template-columns:1fr;padding:18px}.tag{text-align:left}.team{gap:16px 12px}.member h4{font-size:19px}.member span{font-size:10px}footer .cols{gap:32px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.scene,.btn,.card,.nav{transition:none}}
