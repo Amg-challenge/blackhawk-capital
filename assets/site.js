@@ -2,7 +2,7 @@
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const allocation=document.getElementById('alloc');
-allocation.innerHTML='<div class="trow h" role="row"><div role="columnheader">Position</div><div role="columnheader">Capital / risk</div><div class="w" role="columnheader">Weight</div><div class="risk" role="columnheader">Risk share</div></div>'+ALLOC.map(a=>`<div class="trow" role="row"><div class="tick" role="rowheader"><b>${a[0]}</b><span>${a[1]}</span></div><div class="bars" aria-hidden="true"><div class="bar"><i style="width:${a[2]/25*100}%"></i></div><div class="bar rc"><i style="width:${a[3]/25*100}%"></i></div></div><div class="w" role="cell">${a[2].toFixed(2)}%</div><div class="risk" role="cell">${a[3].toFixed(2)}%</div></div>`).join('');
+allocation.innerHTML='<div class="trow h" role="row"><div role="columnheader">Position</div><div aria-hidden="true">Capital / risk</div><div class="w" role="columnheader">Weight</div><div class="risk" role="columnheader">Risk share</div></div>'+ALLOC.map(a=>`<div class="trow" role="row"><div class="tick" role="rowheader"><b>${a[0]}</b><span>${a[1]}</span></div><div class="bars" aria-hidden="true"><div class="bar"><i style="width:${a[2]/25*100}%"></i></div><div class="bar rc"><i style="width:${a[3]/25*100}%"></i></div></div><div class="w" role="cell">${a[2].toFixed(2)}%</div><div class="risk" role="cell">${a[3].toFixed(2)}%</div></div>`).join('');
 allocation.setAttribute('role','table');
 allocation.setAttribute('aria-label','Provisional capital weights and normalized risk contributions');
 
