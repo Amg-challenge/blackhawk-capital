@@ -26,13 +26,3 @@ const CONFIG = {
   /* Leave live values empty until verified Bloomberg performance is available. */
   performance:{asOf:'',ret:'—',vol:'—',sharpe:'—',mdd:'—'}
 };
-const ALLOC = [
-  ['VOO','US equity core',9.91,14.04],
-  ['VTV','US value tilt',10.54,14.16],
-  ['IEFA','Developed ex-US equity',8.47,13.95],
-  ['EEM','Emerging markets equity',8.30,13.93],
-  ['IEF','7–10y US Treasuries',24.04,14.79],
-  ['IGSB','1–5y IG corporate bonds',12.00,3.50],
-  ['GLD','Physical gold',11.75,14.15],
-  ['DBC','Broad commodity futures',15.00,11.48]
-];
