@@ -53,14 +53,11 @@
   ],
   "current_photograph_usage": {
     "opening": "assets/landscape-05.jpg",
-    "research": "assets/landscape-03.jpg",
+    "research": "assets/landscape-02.jpg",
     "team_banner": "assets/landscape-06.jpg"
   },
-  "eagle_asset": {
-    "mode": "built-in image_gen",
-    "asset": "assets/eagle-glide.png",
-    "transparent_background": true,
-    "prompt": "Use case: photorealistic-natural. Asset type: a transparent wildlife cutout to animate in a calm glide across the opening mountain photograph of an institutional student asset-management website. Primary request: one photorealistic golden eagle soaring naturally toward the right, full body and both full wings in frame, slightly banked, wings fully extended with anatomically correct individual primary feathers, head clearly pointing right, small tucked feet, brown plumage with a subtly golden nape. Camera sees a realistic three-quarter underside/profile view as the eagle glides overhead in an Alpine sky. Natural cool daylight with subtle warm feather highlights. Wildlife photography, lifelike feather detail and proportions, no stylization, no graphic silhouette, no outline, no illustrated logo, no cartoon, no text, no scenery, no other objects. Genuine transparent alpha background, no white rectangle, no cast shadow or glow, clean feather edges. Landscape framing with very little empty padding around the full bird; do not crop any feathers.",
-    "presentation": "Photorealistic generated eagle with one 14-second CSS glide on page entry; not stock video or filmed wildlife."
+  "decorative_graphics": {
+    "eagle": "Official black PNG, displayed as a faint cropped watermark in Approach",
+    "mountain": "Original native SVG line artwork in Performance"
   }
 }

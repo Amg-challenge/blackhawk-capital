@@ -30,7 +30,7 @@ if(P.asOf)document.getElementById('p-status').textContent='Live portfolio data a
 document.getElementById('team-grid').innerHTML=CONFIG.team.map(function(m){
   const initials=m.name.split(' ').map(function(s){return s[0]}).join('').slice(0,2);
   const portrait=m.photo?'<img src="'+escapeHtml(m.photo)+'" alt="'+escapeHtml(m.name)+'" loading="lazy">':'<span class="portrait-initials" aria-hidden="true">'+initials+'</span>';
-  return '<article class="member"><div class="portrait">'+portrait+'</div><h3>'+escapeHtml(m.name)+'</h3><p class="role">'+escapeHtml(m.role)+'</p></article>';
+  return '<article class="member soft-reveal"><div class="portrait">'+portrait+'</div><h3>'+escapeHtml(m.name)+'</h3><p class="role">'+escapeHtml(m.role)+'</p></article>';
 }).join('');
 const nav=document.getElementById('nav'),menu=document.getElementById('menu-toggle');
 function closeMenu(){nav.classList.remove('menu-open');menu.setAttribute('aria-expanded','false')}
@@ -42,7 +42,32 @@ let queued=false;
 function updateNavigation(){queued=false;let current='';['approach','research','performance','team'].forEach(function(id){if(document.getElementById(id).getBoundingClientRect().top<innerHeight*.45)current=id});document.querySelectorAll('#main-menu a').forEach(function(a){const on=a.getAttribute('href')==='#'+current;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}
 addEventListener('scroll',function(){if(!queued){queued=true;requestAnimationFrame(updateNavigation)}},{passive:true});
 updateNavigation();
-/* A single natural glide on entry; no flying logo or looping particle effects. */
-const eagle=document.getElementById('hero-eagle');
-function startGlide(){if(eagle.naturalWidth>0&&!matchMedia('(prefers-reduced-motion: reduce)').matches)eagle.classList.add('fly')}
-if(eagle.complete)startGlide();else eagle.addEventListener('load',startGlide,{once:true});
+
+/* Natural wheel scrolling; animation follows scroll rather than replacing it. */
+const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+const photoLayers=Array.from(document.querySelectorAll('.hero-photo,.section-photo'));
+const textures=Array.from(document.querySelectorAll('.brand-watermark,.mountain-watermark'));
+const hero=document.getElementById('top'),heroCopy=document.querySelector('.hero-inner');
+const clamp=function(v,min,max){return Math.max(min,Math.min(max,v))};
+function updateScrollVisuals(){
+  if(motionPreference.matches)return;
+  photoLayers.forEach(function(layer){const owner=layer.parentElement,rect=owner.getBoundingClientRect();if(rect.bottom<-100||rect.top>innerHeight+100)return;const offset=(innerHeight*.5-(rect.top+rect.height*.5))*.11;layer.style.setProperty('--photo-shift',clamp(offset,-52,52).toFixed(2)+'px')});
+  textures.forEach(function(mark){const rect=mark.parentElement.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)return;mark.style.setProperty('--mark-shift',clamp((innerHeight*.5-rect.top-rect.height*.5)*.06,-28,28).toFixed(2)+'px')});
+  const heroRect=hero.getBoundingClientRect();const progress=clamp(-heroRect.top/heroRect.height,0,1);
+  heroCopy.style.setProperty('--copy-shift',(progress*46).toFixed(2)+'px');heroCopy.style.setProperty('--hero-opacity',String(clamp(1-progress*.9,.1,1)));
+}
+let visualFrame=false;
+function queueVisuals(){if(!visualFrame){visualFrame=true;requestAnimationFrame(function(){visualFrame=false;updateScrollVisuals()})}}
+addEventListener('scroll',queueVisuals,{passive:true});addEventListener('resize',queueVisuals,{passive:true});
+const revealElements=Array.from(document.querySelectorAll('.soft-reveal'));
+let revealObserver;
+function setMotion(){
+  if(revealObserver)revealObserver.disconnect();
+  if(motionPreference.matches){document.body.classList.remove('motion-ready');heroCopy.style.removeProperty('--hero-opacity');return}
+  document.body.classList.add('motion-ready');
+  revealElements.forEach(function(el){const r=el.getBoundingClientRect();if(r.top<innerHeight*.94&&r.bottom>0)el.classList.add('is-visible')});
+  revealObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}})},{threshold:.04,rootMargin:'0px 0px -24px 0px'});
+  revealElements.forEach(function(el){if(!el.classList.contains('is-visible'))revealObserver.observe(el)});
+  queueVisuals();
+}
+motionPreference.addEventListener('change',setMotion);setMotion();
