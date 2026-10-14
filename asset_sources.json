@@ -1,0 +1,63 @@
+{
+  "reference_url": "https://amg-challenge.github.io/blackhawk-capital/",
+  "reference_commit": "5fe0b7983f20c00c1a2ef0e97566a5f1b4520272",
+  "photographs": [
+    {
+      "file": "assets/landscape-01.jpg",
+      "source": "https://images.unsplash.com/photo-1764366795867-a0e7fcbf791e?auto=format&fit=crop&w=2200&q=80",
+      "sha256": "14218e3fe41ad7b1b967d6de7644785f38f07d853a0de1b0f2e0514127f49e30",
+      "bytes": 555375
+    },
+    {
+      "file": "assets/landscape-02.jpg",
+      "source": "https://images.unsplash.com/photo-1705504859369-374481f74cab?auto=format&fit=crop&w=2200&q=80",
+      "sha256": "633ac37edb99f48b54384ee58ff8786879fbe8f805aeaf8a2dcee97a728de560",
+      "bytes": 319765
+    },
+    {
+      "file": "assets/landscape-03.jpg",
+      "source": "https://images.unsplash.com/photo-1579091130396-0419e27b29d8?auto=format&fit=crop&w=2200&q=80",
+      "sha256": "c3ec76126ba6e50e628a4e794680949d86f39b5e4799532ccbff96c51029ad07",
+      "bytes": 479938
+    },
+    {
+      "file": "assets/landscape-04.jpg",
+      "source": "https://images.unsplash.com/photo-1765788659831-5470f57fdf3d?auto=format&fit=crop&w=2200&q=80",
+      "sha256": "252c9e9e72358abf746021dc1940b2db467e1fe88e1be3515eba84b8ce7c3b46",
+      "bytes": 527740
+    },
+    {
+      "file": "assets/landscape-05.jpg",
+      "source": "https://images.unsplash.com/photo-1651516246303-584f0f174762?auto=format&fit=crop&w=2200&q=80",
+      "sha256": "4b6d0956c0e04b98bb9b981d8c27311399e3b769691933b4f4309bf07104d83e",
+      "bytes": 751602
+    },
+    {
+      "file": "assets/landscape-06.jpg",
+      "source": "https://images.unsplash.com/photo-1744733941237-7ac53305a821?auto=format&fit=crop&w=2200&q=80",
+      "sha256": "b496baa19ca1aa09832cd2d1ac3259897926ad9f534fad8555a11392641c9282",
+      "bytes": 167859
+    }
+  ],
+  "logos": [
+    {
+      "file": "assets/blackhawk-logo-black.png",
+      "supplied_original": "BlackHawk_logo.png",
+      "sha256": "8fe53634d573cd23d3f90d8668d6aea638463dd0395b6c1629cbcdef7235f85b"
+    },
+    {
+      "file": "assets/blackhawk-logo-white.png",
+      "supplied_original": "BlackHawk_logo_white.png",
+      "sha256": "84328c5703f4cf51152206af0f21e8f3f2e43d66405d8b2bb74d5d592885c962"
+    }
+  ],
+  "current_photograph_usage": {
+    "opening": "assets/landscape-05.jpg",
+    "research": "assets/landscape-02.jpg",
+    "team_banner": "assets/landscape-06.jpg"
+  },
+  "decorative_graphics": {
+    "eagle": "Official black PNG, displayed as a faint cropped watermark in Approach",
+    "mountain": "Original native SVG line artwork in Performance"
+  }
+}
