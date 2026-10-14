@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlackHawk Capital</title>
+<meta name="description" content="BlackHawk Capital: multi-asset student fund, USI Lugano, Asset Management Challenge 2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090d15'/%3E%3Cpath d='M4 24 13 14 17 18 21 12 28 24Z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--edge:rgba(255,255,255,.12);--edge-2:rgba(255,255,255,.22);--glass:rgba(8,12,19,.62);--text:#f3f1ec;--muted:#a9b3c0;--steel:#9db4cb;--gold:#d6b880;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:#090d15;-webkit-font-smoothing:antialiased;line-height:1.6;font-size:16px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+#scenes{position:fixed;inset:0;z-index:0;overflow:hidden;background:#05080f}
+.scene{position:absolute;inset:-4%;background-size:cover;background-position:center;opacity:0;will-change:opacity,transform;transform-origin:50% 60%}
+.scene:first-child{opacity:1}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block}
+.shade{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(4,7,12,.55) 0%,rgba(4,7,12,.08) 30%,rgba(4,7,12,.10) 65%,rgba(4,7,12,.6) 100%)}
+#hawk{position:fixed;left:0;top:0;width:150px;z-index:1;pointer-events:none;will-change:transform;opacity:0;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.35) 100%)}
+main{position:relative;z-index:2}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(7,11,18,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--edge)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mark{width:40px;display:inline-block}
+[data-svg] svg{display:block;width:100%;height:auto}
+.brand span{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.02em}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav ul a{color:rgba(255,255,255,.75);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:color .2s;position:relative;padding:6px 0}
+.nav ul a:hover,.nav ul a.on{color:#fff}
+.nav ul a.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold)}
+.progress{position:absolute;left:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--steel),var(--gold));width:0}
+.hero{min-height:100vh;display:flex;align-items:center;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.hero .content{padding:120px 28px 80px;width:100%}
+.emblem{width:150px;margin-bottom:26px}
+.eyebrow{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--steel)}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(46px,7vw,92px);line-height:1;margin:18px 0 24px;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:#dfe7ef}
+.lead{max-width:560px;color:rgba(255,255,255,.82);font-size:17.5px;line-height:1.65}
+.btns{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border:1px solid rgba(255,255,255,.45);transition:all .25s;backdrop-filter:blur(6px)}
+.btn.primary{background:#fff;color:#0b0f16;border-color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.scroll-cue{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-cue i{width:1px;height:46px;background:linear-gradient(rgba(255,255,255,.8),transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.interlude{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.chapter{text-shadow:0 4px 40px rgba(0,0,0,.45)}
+.chapter .roman{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold);letter-spacing:.1em}
+.chapter h2{font-family:var(--serif);font-weight:500;font-size:clamp(52px,8vw,110px);line-height:1;margin:10px 0 16px}
+.chapter p{color:rgba(255,255,255,.85);font-size:16px;letter-spacing:.06em;max-width:520px;margin:0 auto}
+.chapter .alt{display:inline-block;margin-top:22px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);border-top:1px solid rgba(255,255,255,.35);padding-top:12px}
+section.block{padding:40px 0 120px}
+.panel{background:var(--glass);backdrop-filter:blur(16px) saturate(120%);-webkit-backdrop-filter:blur(16px) saturate(120%);border:1px solid var(--edge);padding:56px 52px;box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}
+.sec-head{display:grid;grid-template-columns:110px 1fr;gap:20px;margin-bottom:48px}
+.num{font-family:var(--serif);font-size:20px;color:var(--gold);font-style:italic;padding-top:10px;border-top:1px solid var(--edge-2)}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.4vw,52px);line-height:1.08}
+.sec-head h2 em{color:var(--steel)}
+.sec-head p{color:var(--muted);max-width:640px;margin-top:14px;font-size:16.5px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--edge);background:rgba(255,255,255,.03);padding:30px 28px;transition:background .3s,transform .3s,border-color .3s}
+.card:hover{background:rgba(255,255,255,.07);transform:translateY(-3px);border-color:var(--edge-2)}
+.card .k{font-family:var(--serif);font-size:42px;color:rgba(255,255,255,.22);line-height:1;font-weight:600}
+.card h3{font-family:var(--serif);font-size:25px;font-weight:600;margin:14px 0 10px;line-height:1.2}
+.card p{color:var(--muted);font-size:15px}
+.badge{display:inline-block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:5px 10px;border:1px solid var(--edge-2);color:var(--muted);margin-top:20px}
+.badge.live{background:#fff;color:#0b0f16;border-color:#fff}
+.mandate{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge);margin-bottom:44px}
+.mandate div{background:rgba(8,12,19,.55);padding:22px}
+.mandate small{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.mandate strong{font-family:var(--serif);font-size:28px;font-weight:600}
+.alloc{display:grid;grid-template-columns:1.35fr 1fr;gap:44px;align-items:start}
+.table{border:1px solid var(--edge)}
+.trow{display:grid;grid-template-columns:1.5fr 2.2fr 64px;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--edge)}
+.trow:last-child{border-bottom:0}
+.trow.h{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.trow.h .w{font-size:10.5px}
+.tick b{font-weight:600;font-size:14.5px}
+.tick span{display:block;font-size:12.5px;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:5px}
+.bar{height:6px;background:rgba(255,255,255,.08);position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:#fff;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.bar.rc i{background:var(--steel)}
+.w{text-align:right;font-variant-numeric:tabular-nums;font-size:14px;font-weight:600}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--muted);margin:14px 2px 0}
+.legend i{display:inline-block;width:14px;height:6px;margin-right:7px;vertical-align:middle}
+.side h3{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.15;margin-bottom:14px}
+.side p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.mix{display:flex;height:10px;margin:24px 0 12px;gap:2px}
+.mix div{height:100%}
+.mixleg{display:grid;gap:10px;font-size:14px}
+.mixleg div{display:flex;justify-content:space-between;border-bottom:1px solid var(--edge);padding-bottom:9px}
+.mixleg i{display:inline-block;width:10px;height:10px;margin-right:10px}
+.note{font-size:12.5px;color:var(--muted);margin-top:20px;font-style:italic}
+.tabs{display:inline-flex;border:1px solid var(--edge-2);margin-bottom:26px}
+.tabs button{font:inherit;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:12px 22px;border:0;background:none;color:var(--muted);cursor:pointer;transition:all .2s}
+.tabs button.on{background:#fff;color:#0b0f16}
+.docs{display:grid;gap:12px}
+.doc{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;border:1px solid var(--edge);background:rgba(255,255,255,.03);padding:20px 24px;transition:all .25s}
+.doc:hover{background:rgba(255,255,255,.07);border-color:var(--edge-2)}
+.doc .n{font-family:var(--serif);font-size:30px;color:var(--gold);font-style:italic}
+.doc h4{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.2}
+.doc p{color:var(--muted);font-size:14px}
+.tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:6px 11px;border:1px solid var(--edge-2);white-space:nowrap;color:var(--muted)}
+.tag.go{background:#fff;color:#0b0f16;border-color:#fff}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge)}
+.tile{background:rgba(8,12,19,.55);padding:28px 24px}
+.tile small{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tile strong{font-family:var(--serif);font-size:46px;font-weight:500;line-height:1}
+.tile em{display:block;font-style:normal;font-size:12.5px;color:var(--muted);margin-top:10px}
+.status{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:14px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(214,184,128,.2);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(214,184,128,0)}}
+.team{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.ph{aspect-ratio:4/5;background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));border:1px solid var(--edge);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:44px;color:rgba(255,255,255,.55);overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .4s,transform .6s}
+.member:hover .ph img{filter:grayscale(0);transform:scale(1.04)}
+.member h4{font-family:var(--serif);font-size:21px;font-weight:600;margin-top:14px;line-height:1.2}
+.member span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+footer{position:relative;z-index:2;background:rgba(5,8,13,.9);backdrop-filter:blur(10px);color:var(--muted);padding:60px 0 36px;font-size:13.5px;border-top:1px solid var(--edge)}
+footer .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--edge)}
+footer .brand span{color:#fff}
+footer .cols{display:flex;gap:60px}
+footer h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:12px;font-weight:600}
+footer .cols a{display:block;margin-bottom:6px}
+footer .cols a:hover{color:#fff}
+footer .legal{padding-top:24px;font-size:12px;line-height:1.7;max-width:820px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.chapter.reveal{transform:translateY(40px) scale(.97);filter:blur(6px);transition:opacity 1.3s ease,transform 1.3s cubic-bezier(.2,.7,.2,1),filter 1.3s ease}
+.chapter.reveal.in{filter:none;transform:none}
+@media (max-width:900px){.nav ul{gap:14px}.nav ul a{font-size:10px;letter-spacing:.12em}.steps,.alloc{grid-template-columns:1fr}.mandate,.tiles{grid-template-columns:repeat(2,1fr)}.team{grid-template-columns:repeat(2,1fr)}.sec-head{grid-template-columns:1fr}.num{width:80px}.panel{padding:36px 24px}}
+@media (max-width:640px){.nav ul{display:none}}
+@media (max-width:560px){.wrap{padding:0 16px}.hero .content{padding:110px 18px 80px}.doc{grid-template-columns:1fr;gap:8px}.trow{grid-template-columns:1.2fr 1.6fr 56px;padding:12px}.tile strong{font-size:36px}}
+@media (prefers-reduced-motion:reduce){.reveal,.chapter.reveal{transition:none;opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<script>
+const CONFIG = {
+team: [
+{name: "Giorgio Galdiolo",   role: "Role", photo: ""},
+{name: "Alessandro Maugeri", role: "Role", photo: ""},
+{name: "Stefano Martino",    role: "Role", photo: ""},
+{name: "Giorgio Ferretto",   role: "Role", photo: ""},
+{name: "Raffaele Sicolo",    role: "Role", photo: ""}
+],
+docs: {
+r1: [
+{title:"Strategic Asset Allocation — Report", desc:"Universe, risk inputs, capped ERC weights, backtest and checkpoint assignments.", type:"Report", date:"18 Oct 2026", url:""},
+{title:"Round 1 Presentation", desc:"Market outlook, allocation and backtest results, as presented in class.", type:"Slides", date:"20 Oct 2026", url:""},
+{title:"Code & Data", desc:"Python notebook, price data and the full research register.", type:"Data & Code", date:"18 Oct 2026", url:""}
+],
+r2: [
+{title:"Discretionary Equity — Report", desc:"Valuation dossiers, catalysts and Treynor-Black weights for our stock picks.", type:"Report", date:"8 Nov 2026", url:""},
+{title:"Round 2 Presentation", desc:"Round 1 performance and our individual stock ideas.", type:"Slides", date:"10 Nov 2026", url:""}
+],
+r3: [
+{title:"Quantitative & Macro — Report", desc:"Factor strategy specification, macro view and the full portfolio.", type:"Report", date:"29 Nov 2026", url:""},
+{title:"Round 3 Presentation", desc:"Round 2 performance and our two tactical strategies.", type:"Slides", date:"1 Dec 2026", url:""},
+{title:"Code & Data", desc:"Factor backtest code and data.", type:"Data & Code", date:"29 Nov 2026", url:""}
+]
+},
+performance: { asOf: "", ret: "—", vol: "—", sharpe: "—", mdd: "—" }
+};
+</script>
+<div id="scenes" aria-hidden="true">
+<div class="scene" data-src="https://images.unsplash.com/photo-1764366795867-a0e7fcbf791e"></div>
+<div class="scene" data-src="https://images.unsplash.com/photo-1705504859369-374481f74cab"></div>
+<div class="scene" data-src="https://images.unsplash.com/photo-1579091130396-0419e27b29d8"></div>
+<div class="scene" data-src="https://images.unsplash.com/photo-1765788659831-5470f57fdf3d"></div>
+<div class="scene" data-src="https://images.unsplash.com/photo-1651516246303-584f0f174762"></div>
+<div class="scene" data-src="https://images.unsplash.com/photo-1744733941237-7ac53305a821"></div>
+</div>
+<div class="shade"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="hawk" data-svg="hawk" aria-hidden="true"></div>
+<div class="vignette"></div>
+<nav class="nav" id="nav">
+<div class="wrap">
+<a href="#top" class="brand" data-go><span class="mark" data-svg="emblem"></span><span>BlackHawk Capital</span></a>
+<ul>
+<li><a href="#approach" data-go>Approach</a></li>
+<li><a href="#portfolio" data-go>Portfolio</a></li>
+<li><a href="#research" data-go>Research</a></li>
+<li><a href="#performance" data-go>Performance</a></li>
+<li><a href="#team" data-go>Team</a></li>
+</ul>
+</div>
+<div class="progress" id="progress"></div>
+</nav>
+<main>
+<header class="hero" id="top" style="position:relative">
+<div class="wrap content">
+<div class="emblem reveal" data-svg="emblem" role="img" aria-label="BlackHawk Capital emblem"></div>
+<div class="eyebrow reveal">Multi-asset fund · Lugano · Asset Management Challenge 2026</div>
+<h1 class="reveal">Disciplined risk.<br><em>Diversified return.</em></h1>
+<p class="lead reveal">BlackHawk Capital manages USD 100 million across global equities, government and corporate bonds, gold and commodities. We set the risk budget first, then let every position earn its share of it.</p>
+<div class="btns reveal">
+<a class="btn primary" href="#approach" data-go>Begin the ascent</a>
+<a class="btn" href="#research" data-go>Reports</a>
+</div>
+</div>
+<div class="scroll-cue"><span>Scroll</span><i></i></div>
+</header>
+<div class="interlude"><div class="chapter reveal">
+<div class="roman">Chapter I</div><h2>Base camp</h2>
+<p>Every expedition starts with a plan and a margin of safety.</p>
+<span class="alt">Dents du Midi, Valais · Sunrise</span>
+</div></div>
+<section class="block" id="approach">
+<div class="wrap"><div class="panel reveal">
+<div class="sec-head">
+<div class="num">01</div>
+<div>
+<div class="eyebrow">Approach</div>
+<h2>One strategic core, <em>three disciplined steps.</em></h2>
+<p>We do not try to forecast which asset class wins next. We build a portfolio that earns from several independent sources, and we let risk, not capital, decide how much each one weighs.</p>
+</div>
+</div>
+<div class="steps">
+<div class="card"><div class="k">I</div><h3>Strategic Asset Allocation</h3><p>Eight broad ETFs weighted by capped Equal Risk Contribution, estimated on 60 months of USD returns and held to an 8% volatility target.</p><span class="badge live">Round 1 · Live</span></div>
+<div class="card"><div class="k">II</div><h3>Discretionary equity</h3><p>A focused set of individual stocks, chosen on valuation and on catalysts expected before year-end, sized with the Treynor-Black model.</p><span class="badge">Round 2 · November</span></div>
+<div class="card"><div class="k">III</div><h3>Quantitative &amp; macro</h3><p>A factor strategy and a macro view added within a tracking-error budget, always measured against our strategic core.</p><span class="badge">Round 3 · December</span></div>
+</div>
+</div></div>
+</section>
+<div class="interlude"><div class="chapter reveal">
+<div class="roman">Chapter II</div><h2>The climb</h2>
+<p>Eight ropes, one team. No single line carries the whole weight.</p>
+<span class="alt">Valais Alps above Sion · Winter sunrise</span>
+</div></div>
+<section class="block" id="portfolio">
+<div class="wrap"><div class="panel reveal">
+<div class="sec-head">
+<div class="num">02</div>
+<div>
+<div class="eyebrow">Portfolio</div>
+<h2>Capital weight is not <em>risk weight.</em></h2>
+<p>Each position is sized so that it contributes a similar share of portfolio volatility. Concentration limits keep any single exposure in check: at most 50% in equities, 12% in short credit, 15% each in gold and commodities.</p>
+</div>
+</div>
+<div class="mandate">
+<div><small>Ex-ante volatility</small><strong>8.58%</strong></div>
+<div><small>1-month 5% VaR</small><strong>4.07%</strong></div>
+<div><small>Weighting rule</small><strong>Capped ERC</strong></div>
+<div><small>Estimation window</small><strong>60 months</strong></div>
+</div>
+<div class="alloc">
+<div>
+<div class="table" id="alloc"></div>
+<div class="legend"><span><i style="background:#fff"></i>Capital weight</span><span><i style="background:var(--steel)"></i>Risk contribution</span></div>
+</div>
+<div class="side">
+<h3>Three sources of return, held in balance.</h3>
+<p>Equities for growth, bonds for duration and carry, real assets for protection against inflation shocks that hurt both stocks and nominal bonds.</p>
+<div class="mix">
+<div style="width:37.21%;background:#fff"></div>
+<div style="width:36.04%;background:var(--steel)"></div>
+<div style="width:26.75%;background:var(--gold)"></div>
+</div>
+<div class="mixleg">
+<div><span><i style="background:#fff"></i>Equities</span><b>37.2%</b></div>
+<div><span><i style="background:var(--steel)"></i>Bonds</span><b>36.0%</b></div>
+<div><span><i style="background:var(--gold)"></i>Gold &amp; commodities</span><b>26.8%</b></div>
+</div>
+<p class="note">Weights at formation, 12 October 2026. Share quantities are set at the closing prices of 16 October 2026.</p>
+</div>
+</div>
+</div></div>
+</section>
+<div class="interlude"><div class="chapter reveal">
+<div class="roman">Chapter III</div><h2>Above the clouds</h2>
+<p>From up here, every route is visible. We publish ours.</p>
+<span class="alt">Swiss Alps · Midday</span>
+</div></div>
+<section class="block" id="research">
+<div class="wrap"><div class="panel reveal">
+<div class="sec-head">
+<div class="num">03</div>
+<div>
+<div class="eyebrow">Research library</div>
+<h2>Every decision, <em>on the record.</em></h2>
+<p>Our reports, presentations and code are published here round by round, so that every trade can be checked against the strategy we announced.</p>
+</div>
+</div>
+<div class="tabs" id="tabs">
+<button class="on" data-r="r1">Round 1</button>
+<button data-r="r2">Round 2</button>
+<button data-r="r3">Round 3</button>
+</div>
+<div class="docs" id="docs"></div>
+</div></div>
+</section>
+<div class="interlude"><div class="chapter reveal">
+<div class="roman">Chapter IV</div><h2>The summit</h2>
+<p>The view is only worth it if you can show how you got there.</p>
+<span class="alt">Jungfraujoch · 3,466 m</span>
+</div></div>
+<section class="block" id="performance">
+<div class="wrap"><div class="panel reveal">
+<div class="sec-head">
+<div class="num">04</div>
+<div>
+<div class="eyebrow">Performance</div>
+<h2>Measured by the <em>Sharpe Ratio.</em></h2>
+<p>Returns are measured from the start of Round 1 against the 1-month US Treasury bill rate. We report the risk we take alongside the return we earn.</p>
+</div>
+</div>
+<div class="tiles">
+<div class="tile"><small>Return since inception</small><strong id="p-ret">—</strong><em>Since 16 Oct 2026</em></div>
+<div class="tile"><small>Annualized volatility</small><strong id="p-vol">—</strong><em>Target 8%</em></div>
+<div class="tile"><small>Sharpe Ratio</small><strong id="p-sh">—</strong><em>Realistic estimate 0.29</em></div>
+<div class="tile"><small>Maximum drawdown</small><strong id="p-dd">—</strong><em>Limit 20%</em></div>
+</div>
+<div class="status"><span class="dot"></span><span id="p-status">First update after the portfolio goes live on 16 October 2026.</span></div>
+</div></div>
+</section>
+<div class="interlude"><div class="chapter reveal">
+<div class="roman">Chapter V</div><h2>The crew</h2>
+<p>Like the hawk above the mountains: patient, controlled, and decisive when the evidence is clear.</p>
+<span class="alt">Swiss Alps · Dawn watch</span>
+</div></div>
+<section class="block" id="team">
+<div class="wrap"><div class="panel reveal">
+<div class="sec-head">
+<div class="num">05</div>
+<div>
+<div class="eyebrow">Team</div>
+<h2>The people <em>behind the fund.</em></h2>
+<p>Five Master in Finance students at Università della Svizzera italiana, Lugano.</p>
+</div>
+</div>
+<div class="team" id="team-grid"></div>
+</div></div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="top">
+<div>
+<a href="#top" class="brand" data-go><span class="mark" data-svg="emblem"></span><span>BlackHawk Capital</span></a>
+<p style="margin-top:14px;max-width:320px">Asset Management Challenge 2026 · Financial Modeling · USI Lugano</p>
+</div>
+<div class="cols">
+<div><h5>Fund</h5><a href="#approach" data-go>Approach</a><a href="#portfolio" data-go>Portfolio</a><a href="#performance" data-go>Performance</a></div>
+<div><h5>Resources</h5><a href="#research" data-go>Reports</a><a href="#team" data-go>Team</a><a href="https://sites.google.com/view/assetmanagementchallenge2026/home" target="_blank" rel="noopener">The Challenge ↗</a></div>
+</div>
+</div>
+<p class="legal">BlackHawk Capital is a student fund created for an academic competition. The portfolio is simulated on Bloomberg and no real capital is invested. Nothing on this site is investment advice. Past and backtested performance is not indicative of future results.<br>Photography on <a href="https://unsplash.com" target="_blank" rel="noopener" style="text-decoration:underline">Unsplash</a>: Marek Piwnicki (Dolomites), Eleonora Patricola (Dents du Midi; Swiss Alps), Martin Adams (Valais), Pietro Caspani (Swiss Alps), Nirmal Rajendharkumar (Jungfraujoch).</p>
+</div>
+</footer>
+<script>
+const HAWK='M654 44 635 56 622 67 599 91 587 107 577 117 557 128 554 127 581 97 600 72 580 85 534 133 514 141 512 140 532 124 551 101 501 136 469 155 460 159 455 163 437 172 402 195 417 195 440 180 471 164 495 155 523 147 542 139 578 127 583 124 596 111 619 84 635 69 636 72 632 82 618 106 594 130 580 139 564 147 525 161 506 170 478 190 473 195 474 194 490 195 507 182 526 172 573 155 590 146 610 131 624 116 633 103 645 78ZM65 15 66 23 72 39 82 59 95 78 110 94 107 95 84 83 54 63 60 83 69 100 78 112 88 122 100 131 99 132 94 131 71 122 69 120 69 122 82 143 96 158 114 171 130 179 131 181 129 182 115 179 113 180 142 200 173 216 297 266 279 283 245 291 197 300 142 307 170 322 189 329 188 331 182 332 209 342 227 346 243 348 271 347 287 339 307 319 333 319 350 317 375 312 398 304 420 292 463 261 476 255 494 250 506 250 512 252 518 258 520 262 525 256 529 247 529 236 526 230 518 223 506 219 500 212 488 207 476 205 414 205 413 206 381 206 380 205 400 223 399 224 388 224 378 219 369 213 343 191 281 134 222 110 156 77 108 47ZM402 231 404 229 414 229 426 227 407 215 408 214 475 213 488 216 494 221 494 223 490 225 479 222 472 222 476 225 476 227 479 230 487 231 497 226 509 229 517 235 519 239 519 245 518 246 509 241 491 241 481 243 469 247 457 253 428 272 427 270 434 248 415 251 414 250 425 238 418 237ZM89 49 90 48 93 49 123 70 168 96 227 124 276 143 330 193 365 223 380 233 405 243 405 245 393 264 417 260 418 263 412 283 402 290 379 300 355 306 334 308 333 305 335 302 339 287 326 301 319 305 300 310 280 331 272 336 263 338 257 338 256 336 267 328 285 311 238 334 223 335 216 333 214 331 219 328 249 317 274 304 264 308 260 308 237 315 205 322 193 320 179 315 176 312 177 311 211 306 286 291 338 247 324 252 311 259 307 259 285 251 249 235 250 234 306 233 311 232 316 229 313 225 256 223 216 219 198 215 182 209 156 195 154 193 155 191 187 197 214 200 226 203 303 212 297 206 287 201 279 201 255 196 204 189 157 179 140 173 124 165 110 156 99 145 100 143 130 153 177 166 248 183 277 188 269 180 259 176 236 171 217 165 213 165 183 156 179 156 152 147 126 135 109 125 97 116 86 105 77 92 78 90 97 101 152 127 202 146 250 161 238 150 226 144 176 125 136 102 123 92 108 77 95 60Z';
+const PEAK='M277 491 358 436 399 411 400 412 392 426 392 428 378 453 379 453 453 389 454 391 430 451 428 459 425 464 463 430 467 428 534 477 502 437 473 404 475 380 477 375 496 397 482 345 483 344 506 366 597 462 568 415 577 402 603 421 629 443 691 491 576 373 553 397 480 319 414 393 412 393 397 375 394 377Z';
+const GREY='M321 424 317 421 314 421 297 431 254 398 251 398 222 422 168 376 166 376 118 427 99 414 93 413 57 447 25 479 25 481 27 481 48 467 55 461 98 432 108 438 108 441 99 460 103 459 167 395 173 398 198 422 195 423 179 417 175 417 175 419 193 442 193 444 161 478 161 481 163 481 251 415 253 415 255 418 274 471 277 471 321 427Z';
+const SVG={emblem:'<svg viewBox="0 0 710 500" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="evenodd" d="'+PEAK+HAWK+'"/><path fill="#fff" fill-opacity=".5" fill-rule="evenodd" d="'+GREY+'"/></svg>',hawk:'<svg viewBox="40 0 640 360" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="evenodd" d="'+HAWK+'"/></svg>'};
+document.querySelectorAll('[data-svg]').forEach(el=>el.innerHTML=SVG[el.dataset.svg]);
+const ALLOC=[["VOO","US equity core",9.91,14.04],["VTV","US value tilt",10.54,14.16],["IEFA","Developed ex-US equity",8.47,13.95],["EEM","Emerging markets equity",8.30,13.93],["IEF","7–10y US Treasuries",24.04,14.79],["IGSB","1–5y IG corporate bonds",12.00,3.50],["GLD","Physical gold",11.75,14.15],["DBC","Broad commodities",15.00,11.48]];
+document.getElementById('alloc').innerHTML='<div class="trow h"><div>Position</div><div>Weight vs. risk</div><div class="w">Weight</div></div>'+ALLOC.map(a=>`<div class="trow"><div class="tick"><b>${a[0]}</b><span>${a[1]}</span></div><div class="bars"><div class="bar"><i data-w="${a[2]/25*100}"></i></div><div class="bar rc"><i data-w="${a[3]/25*100}"></i></div></div><div class="w">${a[2].toFixed(1)}%</div></div>`).join('');
+function renderDocs(r){document.getElementById('docs').innerHTML=CONFIG.docs[r].map((d,i)=>{const live=!!d.url;const tag=live?`<span class="tag go">${d.type} ↗</span>`:`<span class="tag">${d.type} · ${d.date}</span>`;const inner=`<div class="n">0${i+1}</div><div><h4>${d.title}</h4><p>${d.desc}</p></div>${tag}`;return live?`<a class="doc" href="${d.url}" target="_blank" rel="noopener">${inner}</a>`:`<div class="doc">${inner}</div>`}).join('')}
+renderDocs('r1');
+document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderDocs(b.dataset.r)});
+const P=CONFIG.performance;['ret','vol','sh','dd'].forEach((k,i)=>document.getElementById('p-'+k).textContent=[P.ret,P.vol,P.sharpe,P.mdd][i]);
+if(P.asOf)document.getElementById('p-status').textContent='Last update: '+P.asOf;
+document.getElementById('team-grid').innerHTML=CONFIG.team.map(m=>{const ini=m.name.split(' ').map(s=>s[0]).join('').slice(0,2);return `<div class="member"><div class="ph">${m.photo?`<img src="${m.photo}" alt="${m.name}">`:ini}</div><h4>${m.name}</h4><span>${m.role}</span></div>`}).join('');
+document.querySelectorAll('[data-go]').forEach(a=>a.addEventListener('click',e=>{const el=document.getElementById(a.getAttribute('href').slice(1));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}));
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%');io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scenes=[...document.querySelectorAll('.scene')], hawk=document.getElementById('hawk');
+const imgW=()=>Math.min(2400,Math.round(Math.max(innerWidth,innerHeight*1.5)*Math.min(devicePixelRatio||1,1.6)/100)*100);
+function load(i){const s=scenes[i];if(!s||s.dataset.loaded)return;s.dataset.loaded=1;const url=`${s.dataset.src}?auto=format&fit=crop&w=${imgW()}&q=78`;const im=new Image();im.onload=()=>{s.style.backgroundImage=`url("${url}")`};im.src=url}
+load(0);load(1);addEventListener('load',()=>scenes.forEach((_,i)=>load(i)));setTimeout(()=>scenes.forEach((_,i)=>load(i)),2500);
+let anchors=[];
+function measure(){const ch=[...document.querySelectorAll('.interlude')];anchors=[0,...ch.map(c=>c.offsetTop+c.offsetHeight/2-innerHeight/2)]}
+addEventListener('resize',measure);addEventListener('load',measure);measure();
+const fx=document.getElementById('fx'), cx=fx.getContext('2d');let W=0,H=0;
+function resize(){const d=Math.min(devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;fx.width=W*d;fx.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+addEventListener('resize',resize);resize();
+const FLAKES=Array.from({length:reduce?0:200},()=>({x:Math.random(),y:Math.random(),z:Math.random()*.9+.1,s:Math.random()*6}));
+const FOG=Array.from({length:9},()=>({x:Math.random(),y:Math.random(),r:.35+Math.random()*.4,v:.2+Math.random()*.6}));
+let target=0,cur=0,last=performance.now(),T=0;
+addEventListener('scroll',()=>{target=scrollY;const max=document.documentElement.scrollHeight-innerHeight;document.getElementById('nav').classList.toggle('solid',scrollY>40);document.getElementById('progress').style.width=(max>0?scrollY/max*100:0)+'%';
+const ids=['approach','portfolio','research','performance','team'];let c='';ids.forEach(id=>{if(document.getElementById(id).getBoundingClientRect().top<innerHeight*.5)c=id});
+document.querySelectorAll('.nav ul a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+c))},{passive:true});
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+function draw(now){
+const dt=Math.min(.05,(now-last)/1000);last=now;T+=dt;
+cur+=(target-cur)*Math.min(1,dt*4);
+let k=0;for(let i=0;i<anchors.length-1;i++){if(cur>=anchors[i]){k=i+Math.min(1,(cur-anchors[i])/Math.max(1,anchors[i+1]-anchors[i]))}}
+if(cur>=anchors[anchors.length-1])k=anchors.length-1;
+const base=Math.floor(k), f=k-base;
+const x=Math.min(1,Math.max(0,(f-.25)/.5)), mixv=ease(x);
+scenes.forEach((s,i)=>{
+let o=0,sc=1.08,ty=0;
+if(i===base){o=1;sc=1.08+.10*f+.06*mixv;ty=-f*2.2}
+else if(i===base+1){o=mixv;sc=1.22-.14*mixv;ty=2-2*mixv}
+s.style.opacity=o.toFixed(3);
+if(o>0)s.style.transform=`translate3d(0,${ty}%,0) scale(${sc.toFixed(4)})`;
+if(o>0&&i+1<scenes.length)load(i+1);
+});
+cx.clearRect(0,0,W,H);
+const fogA=Math.sin(Math.PI*x)*.55;
+if(fogA>.01){for(const g of FOG){const gx=((g.x+T*.01*g.v)%1.3-.15)*W,gy=g.y*H,r=g.r*Math.max(W,H);const gr=cx.createRadialGradient(gx,gy,0,gx,gy,r);gr.addColorStop(0,`rgba(235,240,246,${fogA})`);gr.addColorStop(1,'rgba(235,240,246,0)');cx.fillStyle=gr;cx.fillRect(gx-r,gy-r,r*2,r*2)}}
+const wind=.1+.25*Math.sin(T*.3);
+for(const fl of FLAKES){fl.y+=dt*(.03+.09*fl.z);fl.x+=dt*wind*.05*fl.z+Math.sin(T+fl.s)*dt*.01;if(fl.y>1.02){fl.y=-.02;fl.x=Math.random()}if(fl.x>1.02)fl.x=-.02;
+cx.fillStyle=`rgba(255,255,255,${.3+.55*fl.z})`;cx.beginPath();cx.arc(fl.x*W,fl.y*H,.6+1.9*fl.z,0,6.283);cx.fill()}
+const pass=Math.sin(Math.PI*Math.min(1,Math.max(0,(f-.1)/.8)));
+const seg=Math.min(1,Math.max(0,(f-.1)/.8));
+const hx=-170+(W+340)*seg, hy=H*(.16+.05*Math.sin(k*3))+Math.sin(T*1.6)*8;
+hawk.style.opacity=(k>.05&&base<scenes.length-1?Math.min(1,pass*1.6):0)*.95;
+hawk.style.transform=`translate(${hx}px,${hy}px) rotate(${Math.sin(T*1.2)*3-4}deg) scale(${(.55+.45*pass*(W<600?.7:1)).toFixed(3)})`;
+if(!reduce)requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+if(reduce)addEventListener('scroll',()=>requestAnimationFrame(draw),{passive:true});
+</script>
+</body>
+</html>
