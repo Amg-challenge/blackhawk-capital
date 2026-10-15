@@ -221,6 +221,26 @@ body.motion-ready .soft-reveal:not(.is-visible){opacity:0;transform:translate3d(
 .why-note{font-size:13px;line-height:1.9;color:var(--muted);max-width:760px;margin:30px 0 84px}
 
 .framed .hero-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 140px,#000 230px,#000 66%,transparent 97%);mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 140px,#000 230px,#000 66%,transparent 97%);-webkit-mask-composite:source-in;mask-composite:intersect}.framed .research-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0,transparent 135px,rgba(0,0,0,.18) 200px,rgba(0,0,0,.6) 290px,#000 390px,#000 calc(100% - 390px),rgba(0,0,0,.6) calc(100% - 290px),rgba(0,0,0,.18) calc(100% - 200px),transparent calc(100% - 135px));mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0,transparent 135px,rgba(0,0,0,.18) 200px,rgba(0,0,0,.6) 290px,#000 390px,#000 calc(100% - 390px),rgba(0,0,0,.6) calc(100% - 290px),rgba(0,0,0,.18) calc(100% - 200px),transparent calc(100% - 135px));-webkit-mask-composite:source-in;mask-composite:intersect}.framed .team-photo{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0,transparent 135px,rgba(0,0,0,.25) 190px,rgba(0,0,0,.7) 260px,#000 320px,#000 calc(100% - 320px),rgba(0,0,0,.7) calc(100% - 260px),rgba(0,0,0,.25) calc(100% - 190px),transparent calc(100% - 135px));mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%),linear-gradient(to bottom,transparent 0,transparent 135px,rgba(0,0,0,.25) 190px,rgba(0,0,0,.7) 260px,#000 320px,#000 calc(100% - 320px),rgba(0,0,0,.7) calc(100% - 260px),rgba(0,0,0,.25) calc(100% - 190px),transparent calc(100% - 135px));-webkit-mask-composite:source-in;mask-composite:intersect}.framed .topbar{background:#fff;box-shadow:none;border-color:transparent}.framed .footer{background:#fff;color:var(--muted)}.framed .progress{display:none}.framed .footer-brand,.framed .footer-label,.framed .footer-challenge{color:var(--ink)}.framed .footer-brand small,.framed .footer-bottom>p,.framed .footer-bottom>span,.framed .credits summary,.framed .credits p{color:var(--muted)}.framed .footer-bottom{border-top:1px solid;border-image:linear-gradient(90deg,transparent,#e3e0d8 18%,#e3e0d8 82%,transparent) 1}.framed body:after{content:'';position:fixed;left:0;right:0;bottom:0;height:44px;background:linear-gradient(rgba(255,255,255,0),#fff);pointer-events:none;z-index:40}
+.choices-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);margin-bottom:84px}
+.choices-row>div{padding:28px 30px 30px;border-left:1px solid var(--edge)}
+.choices-row>div:first-child{border-left:0;padding-left:0}
+.choices-row span{display:block;font-size:10px;letter-spacing:.16em;color:#8d7551;font-weight:600;margin-bottom:12px}
+.choices-row h4{font:500 24px/1.2 var(--serif);margin-bottom:10px}
+.choices-row p{font-size:13px;line-height:1.85;color:var(--muted)}
+.research .text-link.light{margin-top:30px;display:inline-flex}
+.lugano{grid-template-columns:1fr 1fr;align-items:center}
+.lugano-facts{margin-top:32px}
+.lugano-photo{margin:0}
+.lugano-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:0 18px 44px rgba(32,43,50,.12)}
+.lugano-photo figcaption{font-size:11px;color:#879092;margin-top:12px;letter-spacing:.03em}
+.footer-brand{width:150px;flex:0 0 150px}
+.footer-brand img{display:block;width:100%;height:auto}
+.footer-brand .logo{filter:brightness(0) invert(1)}
+.framed .footer-brand .logo{filter:none}
+.view-off{display:none!important}
+html{scroll-behavior:auto}
+.editorial{padding-top:150px}.performance{padding-top:170px}
+@media(max-width:1000px){.choices-row{grid-template-columns:1fr}.choices-row>div{border-left:0;border-top:1px solid var(--edge);padding:24px 0}.choices-row>div:first-child{border-top:0}.lugano{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -266,27 +286,11 @@ body.motion-ready .soft-reveal:not(.is-visible){opacity:0;transform:translate3d(
 </div>
 
 <div class="subhead soft-reveal"><p class="eyebrow">Investment choices</p><h3>Three sources of return, held in balance.</h3></div>
-<div class="choices">
-<article class="choice soft-reveal">
-<div class="choice-top"><h4>Global equities</h4></div>
-<p class="choice-role">The growth engine</p>
-<p>A broad US core with a value tilt, plus developed markets outside the US and emerging markets. We want access to US earnings and innovation without relying on a single valuation and sector mix, and we prefer broad regional exposure to a narrow country call.</p>
-<ul class="choice-facts"><li><span>Instruments</span>VOO · VTV · IEFA · EEM</li><li><span>Limit</span>At most half of the fund</li></ul>
-</article>
-<article class="choice soft-reveal">
-<div class="choice-top"><h4>Treasury &amp; corporate bonds</h4></div>
-<p class="choice-role">Duration and carry</p>
-<p>The bond sleeve separates two risks. Medium-term Treasuries bring duration, which tends to cushion the portfolio when growth disappoints. Short investment-grade credit adds carry with much less sensitivity to rates. We keep duration for its strategic role, even after a weak year for Treasuries.</p>
-<ul class="choice-facts"><li><span>Instruments</span>IEF · IGSB</li><li><span>Limit</span>Short credit capped</li></ul>
-</article>
-<article class="choice soft-reveal">
-<div class="choice-top"><h4>Gold &amp; commodities</h4></div>
-<p class="choice-role">Protection against inflation shocks</p>
-<p>Inflation shocks can hurt equities and nominal bonds at the same time. Physical gold, supported by central-bank demand, and a broad commodity basket, sensitive to supply conditions, respond to those shocks. We hold them for their role in the portfolio, not to chase a recent rally.</p>
-<ul class="choice-facts"><li><span>Instruments</span>GLD · DBC</li><li><span>Limit</span>Each sleeve capped</li></ul>
-</article>
+<div class="choices-row soft-reveal">
+<div><span>01</span><h4>Global equities</h4><p>US, developed and emerging markets: the growth engine of the fund.</p></div>
+<div><span>02</span><h4>Government &amp; corporate bonds</h4><p>Duration and carry, to cushion the portfolio when growth slows.</p></div>
+<div><span>03</span><h4>Gold &amp; commodities</h4><p>Real assets that protect when inflation surprises.</p></div>
 </div>
-<p class="choices-note soft-reveal">The market outlook decides which building blocks we hold. The risk budget decides how much of each. Keeping the two apart stops a short-term view from silently replacing the allocation process.</p>
 
 <div class="sizing soft-reveal" style="margin-bottom:84px">
 <div class="sizing-copy"><p class="eyebrow">How we size each position</p><h3>Capital weight is not risk weight.</h3><p>Eight broad ETFs are weighted by capped Equal Risk Contribution: each position is sized to contribute a similar share of portfolio volatility, while concentration limits keep any single exposure in check.</p></div>
@@ -328,17 +332,7 @@ body.motion-ready .soft-reveal:not(.is-visible){opacity:0;transform:translate3d(
 <li><span class="tl-round">Round 3</span><strong>Quantitative &amp; macro</strong><span class="tl-dates">Report 29 Nov · Presentation 1 Dec</span></li>
 </ol>
 
-<div class="research-sheet soft-reveal">
-<div class="research-tools"><span class="library-label">Research library</span><div aria-label="Research round" class="tabs" id="tabs" role="tablist"><button aria-controls="docs" data-r="r1" id="tab-r1" role="tab" type="button">Round 1</button><button aria-controls="docs" data-r="r2" id="tab-r2" role="tab" type="button">Round 2</button><button aria-controls="docs" data-r="r3" id="tab-r3" role="tab" type="button">Round 3</button></div></div>
-<div class="docs" id="docs" role="tabpanel" tabindex="0"></div>
-<p class="publication-note">Publication status and target dates are shown for each document. Draft and planned material will become downloadable when released.</p>
-</div>
-
-<div class="method soft-reveal">
-<article><h3>Data</h3><p>Total-return price histories in USD, with risk inputs estimated on the latest 60 monthly returns, so that the portfolio reflects more than one market regime. The live portfolio is held and tracked on Bloomberg.</p></article>
-<article><h3>Reproducibility</h3><p>Each report comes with the Python notebook, input data and the research register, so every number can be traced back to its source and rerun.</p></article>
-<article><h3>Accountability</h3><p>Every round opens with a review of the previous one: what we expected, what happened, and what we changed as a result.</p></article>
-</div>
+<a class="text-link light" href="#performance">How we measure performance <span aria-hidden="true">→</span></a>
 </div>
 </section>
 
@@ -360,12 +354,13 @@ body.motion-ready .soft-reveal:not(.is-visible){opacity:0;transform:translate3d(
 <div class="team-banner"><div aria-hidden="true" class="section-photo team-photo"></div><div class="container soft-reveal"><p class="eyebrow light">Our team</p><h2 id="team-title">Rooted in Lugano.<br/>One shared discipline.</h2></div></div>
 <div class="container team-content">
 <div class="lugano soft-reveal">
-<div class="lugano-copy"><p class="eyebrow">Lugano · Switzerland</p><h3>Built where finance is part of the landscape.</h3><p>Lugano is Switzerland’s third-largest banking centre, after Zurich and Geneva, and finance is one of the pillars of the local economy. Between the Swiss and Italian markets, it is a natural home for private banking, wealth management and asset management.</p><p>We study and build BlackHawk Capital here, at Università della Svizzera italiana, close to the institutions whose work our portfolio tries to reflect.</p></div>
+<div class="lugano-copy"><p class="eyebrow">Lugano · Switzerland</p><h3>Built where finance is part of the landscape.</h3><p>Lugano is Switzerland’s third-largest banking centre, after Zurich and Geneva, and finance is one of the pillars of the local economy. Between the Swiss and Italian markets, it is a natural home for private banking, wealth management and asset management.</p><p>We study and build BlackHawk Capital here, at Università della Svizzera italiana, close to the institutions whose work our portfolio tries to reflect.</p>
 <dl class="lugano-facts">
 <div><dt>3rd</dt><dd>Swiss banking centre, after Zurich and Geneva</dd></div>
 <div><dt>USI</dt><dd>Master in Finance, Università della Svizzera italiana</dd></div>
 <div><dt>CH · IT</dt><dd>A financial crossroads between Switzerland and Italy</dd></div>
-</dl>
+</dl></div>
+<figure class="lugano-photo"><img src="https://images.unsplash.com/photo-1693225822978-dace07f3b31b?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" alt="The bay of Lugano and Monte San Salvatore at dusk" loading="lazy"/><figcaption>Lake Lugano and Monte San Salvatore</figcaption></figure>
 </div>
 <p class="team-intro soft-reveal">Five Master in Finance students at USI. Our work brings together investment research, quantitative analysis and a shared responsibility for the portfolio.</p>
 <div class="team-grid" id="team-grid"></div>
@@ -374,8 +369,8 @@ body.motion-ready .soft-reveal:not(.is-visible){opacity:0;transform:translate3d(
 </main>
 
 <footer class="footer">
-<div class="container footer-top"><a aria-label="BlackHawk Capital — home" class="footer-brand" data-go="" href="#top"><span data-svg="emblem"></span><b>BLACK HAWK</b><small>CAPITAL</small></a><div><p class="footer-label">BlackHawk Capital</p><p>Master in Finance · USI Lugano<br/>Asset Management Challenge 2026</p></div><a class="footer-challenge" href="https://sites.google.com/view/assetmanagementchallenge2026/home" rel="noopener" target="_blank">The Challenge <span aria-hidden="true">↗</span></a></div>
-<div class="container footer-bottom"><p>An academic portfolio project. The USD 100 million mandate is simulated on Bloomberg; no real capital is invested. Nothing on this site is investment advice. Historical and backtested results do not guarantee future performance.</p><details class="credits"><summary>Visual credits</summary><p>Original alpine photography from <a href="https://unsplash.com/" rel="noopener" target="_blank">Unsplash</a>: Marek Piwnicki, Eleonora Patricola, Martin Adams, Pietro Caspani and Nirmal Rajendharkumar. Logo and eagle mark by BlackHawk Capital; the mountain line artwork is original.</p></details><span>© 2026 BlackHawk Capital</span></div>
+<div class="container footer-top"><a aria-label="BlackHawk Capital — home" class="footer-brand" data-go="" href="#top"><img class="logo" src="data:image/png;base64,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" alt="BlackHawk Capital"/></a><div><p class="footer-label">BlackHawk Capital</p><p>Master in Finance · USI Lugano<br/>Asset Management Challenge 2026</p></div><a class="footer-challenge" href="https://sites.google.com/view/assetmanagementchallenge2026/home" rel="noopener" target="_blank">The Challenge <span aria-hidden="true">↗</span></a></div>
+<div class="container footer-bottom"><p>An academic portfolio project. The USD 100 million mandate is simulated on Bloomberg; no real capital is invested. Nothing on this site is investment advice. Historical and backtested results do not guarantee future performance.</p><details class="credits"><summary>Visual credits</summary><p>Original alpine and Lugano photography from <a href="https://unsplash.com/" rel="noopener" target="_blank">Unsplash</a>: Marek Piwnicki, Eleonora Patricola, Martin Adams, Pietro Caspani and Nirmal Rajendharkumar. Logo and eagle mark by BlackHawk Capital; the mountain line artwork is original.</p></details><span>© 2026 BlackHawk Capital</span></div>
 </footer>
 <script>
 "use strict";
@@ -414,38 +409,7 @@ const escapeHtml=function(s){return String(s).replace(/[&<>"']/g,function(c){ret
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 
 
-const docsEl=document.getElementById('docs');
-function docMarkup(round){
-  return CONFIG.docs[round].map(function(d,i){
-    let live=false;
-    if(d.url){try{live=['https:','http:'].includes(new URL(d.url,location.href).protocol)}catch(e){}}
-    const tag=live?'<span class="tag go">Open '+escapeHtml(d.type)+' ↗</span>':'<span class="tag">'+escapeHtml(d.type)+' · '+escapeHtml(d.status)+'</span>';
-    const date=d.date?'<span class="doc-date">'+(live?'Published ':'Target ')+escapeHtml(d.date)+'</span>':'';
-    const contents=(d.contents&&d.contents.length)?'<ul class="doc-contents">'+d.contents.map(function(c){return '<li>'+escapeHtml(c)+'</li>'}).join('')+'</ul>':'';
-    const inner='<span class="n">0'+(i+1)+'</span><div><h3>'+escapeHtml(d.title)+'</h3><p>'+escapeHtml(d.desc)+'</p>'+contents+'</div><div class="doc-side">'+tag+date+'</div>';
-    return live?'<a class="doc" href="'+escapeHtml(d.url)+'" target="_blank" rel="noopener">'+inner+'</a>':'<article class="doc">'+inner+'</article>';
-  }).join('');
-}
-let swapTimer;
-function renderDocs(round,animate){
-  docsEl.setAttribute('aria-labelledby','tab-'+round);
-  if(!animate||motionPreference.matches){docsEl.innerHTML=docMarkup(round);return}
-  clearTimeout(swapTimer);docsEl.classList.add('swap');
-  swapTimer=setTimeout(function(){docsEl.innerHTML=docMarkup(round);docsEl.classList.remove('swap')},220);
-}
-const tabs=Array.from(document.querySelectorAll('#tabs button'));
-function selectTab(tab,focus,animate){
-  tabs.forEach(function(t){const on=t===tab;t.classList.toggle('on',on);t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1});
-  renderDocs(tab.dataset.r,animate);if(focus)tab.focus();
-}
-tabs.forEach(function(tab,i){
-  tab.addEventListener('click',function(){if(!tab.classList.contains('on'))selectTab(tab,false,true)});
-  tab.addEventListener('keydown',function(e){
-    let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabs.length-1;
-    if(next!==undefined){e.preventDefault();selectTab(tabs[next],true,true)}
-  });
-});
-selectTab(tabs[0],false,false);
+
 
 
 const P=CONFIG.performance;
@@ -468,7 +432,7 @@ function updateNavigation(){
   const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;
   nav.classList.toggle('solid',FRAMED||y>hero.offsetHeight-nav.offsetHeight*1.6);
   progress.style.transform='scaleX('+(max>0?Math.min(1,y/max):0).toFixed(4)+')';
-  let current='';sections.forEach(function(s){if(s.getBoundingClientRect().top<innerHeight*.45)current=s.id});
+  let current=window.__view||'';
   links.forEach(function(a){const on=a.getAttribute('href')==='#'+current;a.classList.toggle('on',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
 }
 
@@ -507,6 +471,19 @@ function setMotion(){
   onScroll();
 }
 motionPreference.addEventListener('change',setMotion);setMotion();
+const VIEWS=['top','approach','research','performance','team'];
+function showView(id,push){
+  if(VIEWS.indexOf(id)<0)id='top';
+  window.__view=id==='top'?'':id;
+  VIEWS.forEach(function(v){document.getElementById(v).classList.toggle('view-off',v!==id)});
+  window.scrollTo(0,0);
+  if(push){try{history.pushState(null,'',id==='top'?location.pathname+location.search:'#'+id)}catch(e){}}
+  requestAnimationFrame(function(){if(typeof revealElements!=='undefined'){revealElements.forEach(function(el){const r=el.getBoundingClientRect();if(r.height&&r.top<innerHeight*.92&&r.bottom>0)el.classList.add('is-visible')})}onScroll()});
+}
+document.addEventListener('click',function(e){const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1)||'top';if(VIEWS.indexOf(id)<0)return;e.preventDefault();showView(id,true)});
+addEventListener('popstate',function(){showView(location.hash.slice(1)||'top',false)});
+showView(location.hash.slice(1)||'top',false);
+
 </script>
 </body>
 </html>
