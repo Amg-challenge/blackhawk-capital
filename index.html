@@ -241,6 +241,31 @@ body.motion-ready .soft-reveal:not(.is-visible){opacity:0;transform:translate3d(
 html{scroll-behavior:auto}
 .editorial{padding-top:150px}.performance{padding-top:170px}
 @media(max-width:1000px){.choices-row{grid-template-columns:1fr}.choices-row>div{border-left:0;border-top:1px solid var(--edge);padding:24px 0}.choices-row>div:first-child{border-top:0}.lugano{grid-template-columns:1fr}}
+.who{position:relative;isolation:isolate;overflow:hidden;padding-top:40px}
+.who>.container{position:relative;z-index:1}
+.who-mark{top:40px}
+.mission{border-left:2px solid var(--gold);padding:6px 0 6px 34px;margin:0 0 72px;max-width:900px}
+.mission .eyebrow{margin-bottom:14px}
+.mission blockquote{margin:0;font:400 clamp(26px,2.6vw,36px)/1.35 var(--serif);color:#2c3b44}
+.who-row{margin-bottom:0;border-bottom:0}
+.timeline .tl-docs{cursor:pointer;outline:none}
+.tl-cue{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-left:8px;border:1px solid rgba(255,255,255,.55);border-radius:50%;font:500 13px/1 var(--sans);vertical-align:3px;transition:transform .4s var(--ease),background .4s var(--ease)}
+.tl-docs:hover .tl-cue,.tl-docs:focus-within .tl-cue,.tl-docs.open .tl-cue{transform:rotate(45deg);background:rgba(255,255,255,.18)}
+.tl-docs:before{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.tl-docs:hover:before,.tl-docs:focus-within:before,.tl-docs.open:before{transform:scale(1.25);box-shadow:0 0 0 6px rgba(174,141,94,.35)}
+.tl-menu{position:absolute;left:-10px;top:100%;z-index:20;width:min(340px,86vw);margin-top:6px;padding:16px 10px 10px;background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 22px 50px rgba(18,32,40,.22);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s linear .45s}
+.tl-menu:before{content:'';position:absolute;left:0;right:0;top:-14px;height:14px}
+.tl-docs:hover .tl-menu,.tl-docs:focus-within .tl-menu,.tl-docs.open .tl-menu{opacity:1;visibility:visible;transform:none;transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s}
+.tl-menu-title{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8d7551;font-weight:600;margin:0 12px 8px}
+.tl-menu a{display:grid;grid-template-columns:28px 1fr 18px;align-items:center;gap:8px;padding:11px 12px;border-radius:10px;border-top:1px solid #f0eee9;transition:background .25s ease}
+.tl-menu a:first-of-type{border-top:0}
+.tl-menu a:hover,.tl-menu a:focus-visible{background:#f6f4ef;outline:none}
+.tl-menu .n{font-size:10px;letter-spacing:.12em;color:var(--gold);font-weight:600}
+.tl-menu .t{font:500 20px/1.15 var(--serif);color:var(--ink)}
+.tl-menu small{display:block;font:400 10px/1.5 var(--sans);letter-spacing:.04em;color:#879092;margin-top:2px}
+.tl-menu .a{color:var(--gold);font-size:14px;transition:transform .3s var(--ease)}
+.tl-menu a:hover .a{transform:translate(2px,-2px)}
+@media(max-width:760px){.mission{padding-left:22px;margin-bottom:52px}.tl-menu{left:0}}
 </style>
 </head>
 <body>
@@ -273,8 +298,27 @@ html{scroll-behavior:auto}
 <p class="hero-copy">A student-led investment project bringing together global markets, quantitative research and a clear framework for risk.</p>
 <div class="actions"><a class="button button-light" data-go="" href="#approach">Explore our approach <span aria-hidden="true">↗</span></a><a class="text-link light" data-go="" href="#research">Research &amp; reports <span aria-hidden="true">→</span></a></div>
 </div>
-<a aria-label="Continue to our investment approach" class="hero-scroll" data-go="" href="#approach"><span>Discover BlackHawk</span><span aria-hidden="true">↓</span></a>
+<a aria-label="Continue to who we are" class="hero-scroll" data-go="" href="#who"><span>Discover BlackHawk</span><span aria-hidden="true">↓</span></a>
 </header>
+
+<section aria-labelledby="who-title" class="who section" id="who"><div aria-hidden="true" class="brand-watermark who-mark" data-svg="emblem"></div>
+<div class="container">
+<div class="section-heading split soft-reveal">
+<div><p class="eyebrow">Who we are</p><h2 id="who-title">A multi-asset manager<br/><em>built on discipline.</em></h2></div>
+<div class="intro-stack"><p class="intro">BlackHawk Capital is a multi-asset investment manager based in Lugano. We build globally diversified portfolios across equities, government and corporate bonds, gold and commodities, combining a clear view of the economic cycle with a rigorous framework for risk.</p></div>
+</div>
+<div class="mission soft-reveal">
+<p class="eyebrow">Our mission</p>
+<blockquote>To grow our investors’ capital steadily through the cycle, taking part in global growth without letting any single market, rate path or asset class decide the outcome.</blockquote>
+</div>
+<div class="choices-row who-row">
+<div class="soft-reveal"><span>01</span><h4>Risk comes first</h4><p>We set the risk budget before we choose the weights. Every position earns its place by the share of risk it brings, not by the capital it takes.</p></div>
+<div class="soft-reveal"><span>02</span><h4>Genuine diversification</h4><p>Equities, duration, credit and real assets respond to different economic forces. We combine them so that no single engine drives the portfolio.</p></div>
+<div class="soft-reveal"><span>03</span><h4>Full transparency</h4><p>Every decision is documented, tested and reproducible. Our investors can see what we expected, what happened and what we changed as a result.</p></div>
+</div>
+<div class="approach-foot soft-reveal"><p>A broader perspective.<br/>A disciplined approach.</p><a class="text-link" href="#approach">Discover our approach <span aria-hidden="true">→</span></a></div>
+</div>
+</section>
 
 <section aria-labelledby="approach-title" class="editorial section" id="approach"><div aria-hidden="true" class="brand-watermark" data-svg="emblem"></div>
 <div class="container">
@@ -327,7 +371,13 @@ html{scroll-behavior:auto}
 <div class="research-heading soft-reveal"><p class="eyebrow light">Research &amp; reporting</p><h2 id="research-title">The thinking<br/>behind the portfolio.</h2><p>Our investment case, the supporting analysis and the record of our decisions, published round by round, so that every trade can be checked against the strategy we announced.</p></div>
 
 <ol class="timeline soft-reveal" aria-label="Reporting calendar">
-<li><span class="tl-round">Round 1</span><strong>Strategic allocation</strong><span class="tl-dates">Portfolio entered on 16 Oct closes · Report 18 Oct · Presentation 20 Oct</span></li>
+<li class="tl-docs" tabindex="0" aria-haspopup="true"><span class="tl-round">Round 1</span><strong>Strategic allocation <span class="tl-cue" aria-hidden="true">+</span></strong><span class="tl-dates">Portfolio entered on 16 Oct closes · Report 18 Oct · Presentation 20 Oct</span>
+<div class="tl-menu" role="menu" aria-label="Round 1 documents">
+<p class="tl-menu-title">Round 1 · Documents</p>
+<a role="menuitem" href="BlackHawk_Round1_Report.pdf" target="_blank" rel="noopener"><span class="n">01</span><span class="t">Report<small>Strategic asset allocation · PDF</small></span><span class="a" aria-hidden="true">↗</span></a>
+<a role="menuitem" href="BlackHawk_Round1_Presentation.pdf" target="_blank" rel="noopener"><span class="n">02</span><span class="t">Presentation<small>Slides presented in class · PDF</small></span><span class="a" aria-hidden="true">↗</span></a>
+<a role="menuitem" href="BlackHawk_Round1_Resources.zip" download><span class="n">03</span><span class="t">Other resources<small>Code, data and exhibits · ZIP</small></span><span class="a" aria-hidden="true">↓</span></a>
+</div></li>
 <li><span class="tl-round">Round 2</span><strong>Discretionary equity</strong><span class="tl-dates">Report 8 Nov · Presentation 10 Nov</span></li>
 <li><span class="tl-round">Round 3</span><strong>Quantitative &amp; macro</strong><span class="tl-dates">Report 29 Nov · Presentation 1 Dec</span></li>
 </ol>
@@ -475,12 +525,13 @@ const VIEWS=['top','approach','research','performance','team'];
 function showView(id,push){
   if(VIEWS.indexOf(id)<0)id='top';
   window.__view=id==='top'?'':id;
-  VIEWS.forEach(function(v){document.getElementById(v).classList.toggle('view-off',v!==id)});
+  VIEWS.forEach(function(v){document.getElementById(v).classList.toggle('view-off',v!==id)});document.getElementById('who').classList.toggle('view-off',id!=='top');
   window.scrollTo(0,0);
   if(push){try{history.pushState(null,'',id==='top'?location.pathname+location.search:'#'+id)}catch(e){}}
   requestAnimationFrame(function(){if(typeof revealElements!=='undefined'){revealElements.forEach(function(el){const r=el.getBoundingClientRect();if(r.height&&r.top<innerHeight*.92&&r.bottom>0)el.classList.add('is-visible')})}onScroll()});
 }
-document.addEventListener('click',function(e){const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1)||'top';if(VIEWS.indexOf(id)<0)return;e.preventDefault();showView(id,true)});
+document.addEventListener('click',function(e){const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1)||'top';if(id==='who'){e.preventDefault();document.getElementById('who').scrollIntoView({behavior:'smooth'});return}if(VIEWS.indexOf(id)<0)return;e.preventDefault();showView(id,true)});
+document.querySelectorAll('.tl-docs').forEach(function(li){li.addEventListener('click',function(e){if(e.target.closest('.tl-menu a'))return;li.classList.toggle('open')})});document.addEventListener('click',function(e){document.querySelectorAll('.tl-docs.open').forEach(function(li){if(!li.contains(e.target))li.classList.remove('open')})});
 addEventListener('popstate',function(){showView(location.hash.slice(1)||'top',false)});
 showView(location.hash.slice(1)||'top',false);
 
